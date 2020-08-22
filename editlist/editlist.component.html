@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-title>Edit List</mat-card-title>
+    <mat-card-content>
+        <form>
+            <mat-form-field appearance="outline">
+                <mat-label>List</mat-label>
+                <input matInput #listname>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button (click)="editList(listname.value)" style="background-color: lightslategrey;">Done</button>
+        <button (click)="back()"style="background-color: lightcoral;">Cancel</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,39 @@
+<div class="centered-content">
+    <div class="task-manager-container">
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+                Lists
+            </h1>
+            <div class="list-menu ">
+            <a class='list-menu-item' *ngFor="let list of lists" [routerLink]="['/lists', list._id]" routerLinkActive="is.active">
+                <p (click)="getListTasks()">{{list.title}}</p>
+            </a>
+            
+        </div>
+        <button class="button is-primary has-text-white" (click)="createNewList()">+ NewList</button>
+        </div>
+        <div class="tasks-list-container has-background-light">
+            
+            <h1 class="title has-text-primary">
+                Tasks
+            </h1>
+            <ul *ngFor="let task of tasks" class="task">
+                <li (click)="onTaskClick(task)">{{task.title}}<mat-icon title="delete task" (click)="onDeleteTask(task._id)" style="padding-left: 11rem;">delete</mat-icon></li>
+                <span *ngIf="task.completed==true" style="color: lightgreen;">done</span>
+            </ul>
+            <div>
+                <button class="circle-add-button" class="button is-primary has-text-white" (click)="addTask()"><mat-icon>add</mat-icon></button>
+            </div>
+            
+            <mat-menu #setmenu="matMenu">
+                <button (click)="editlist()"  mat-menu-item>Edit List</button>
+                <button (click)="onDeleteList()" mat-menu-item>Delete List</button>
+            </mat-menu>
+            <div style="cursor: pointer;position: absolute; bottom: 4rem;">
+                
+                <mat-icon [matMenuTriggerFor]="setmenu">settings</mat-icon>
+            </div>
+    
+        </div>
+    </div>
+</div>

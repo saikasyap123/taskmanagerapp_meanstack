@@ -1,0 +1,15 @@
+<mat-card>
+<mat-card-title>Create New List</mat-card-title>
+<mat-card-content>
+<form>
+    <mat-form-field appearance="outline" color="primary">
+      <mat-label>List</mat-label>
+      <input matInput #listtitle>
+    </mat-form-field>
+</form>
+</mat-card-content>
+<mat-card-actions align="end">
+  <button style="background-color: lightseagreen;" (click)="createNewList(listtitle.value)">Create</button>
+    <button style="background-color: lightcoral;" (click)="cancelList()">Cancel</button>
+</mat-card-actions>
+</mat-card>
